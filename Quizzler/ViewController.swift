@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 London App Brewery. All rights reserved.
 //
 
+// Check out info.plist. To get status bar to "light" check the box and modify plist. 
+
 import UIKit
 
 class ViewController: UIViewController {
