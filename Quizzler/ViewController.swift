@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 London App Brewery. All rights reserved.
 //
 
-// Check out info.plist. To get status bar to "light" check the box and modify plist. 
+// Check out info.plist. To get status bar to "light" check the box under General and modify plist. 2 steps to make it work. 
 
 import UIKit
 
