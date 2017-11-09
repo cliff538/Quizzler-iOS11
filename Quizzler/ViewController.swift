@@ -12,13 +12,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - Properties 
+    // MARK: - Properties
+		let allQuestions = QuestionBank()
+		var pickedAnswer : Bool = false
+	  //this is going to increment and pull the next question from array. 
+		var questionNumber : Int = 0
+	
+	
 
 	
 	
 	
 	  // MARK: - Outlets
-		@IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var progressBar: UIView!
     @IBOutlet weak var progressLabel: UILabel!
@@ -27,12 +33,28 @@ class ViewController: UIViewController {
 		// MARK: - View Did Load
 		override func viewDidLoad() {
         super.viewDidLoad()
+				//when the app starts it loads up the first question, sends questionText to questionLabel.
+				let firstQuestion = allQuestions.list[0]
+					questionLabel.text = firstQuestion.questionText
+		
+		
         
     }
 
 
 		// MARK: - Actions
 		@IBAction func answerPressed(_ sender: AnyObject) { //attatched to two buttons.
+			if sender.tag == 1 {
+				pickedAnswer = true
+			} else if sender.tag == 2 {
+				pickedAnswer = false
+			}
+			
+			checkAnswer()
+			questionNumber += 1
+			//questionNumber is incremented and is used to grab the next question from array.
+			questionLabel.text = allQuestions.list[questionNumber].questionText
+			
   
     }
     
@@ -49,6 +71,13 @@ class ViewController: UIViewController {
     
     
     func checkAnswer() {
+			let correctAnswer = allQuestions.list[questionNumber].answer
+			
+			if correctAnswer == pickedAnswer {
+				print("You got it right")
+			} else {
+				print("You got it wrong")
+			}
         
     }
     
