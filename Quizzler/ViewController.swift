@@ -15,15 +15,11 @@ class ViewController: UIViewController {
     // MARK: - Properties
 		let allQuestions = QuestionBank()
 		var pickedAnswer : Bool = false
-	  //this is going to increment and pull the next question from array. 
+	  //this is going to increment and pull the next question from array.
 		var questionNumber : Int = 0
 	
 	
-
-	
-	
-	
-	  // MARK: - Outlets
+		// MARK: - Outlets
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var progressBar: UIView!
