@@ -7,7 +7,7 @@
 //
 
 // Check out info.plist. To get status bar to "light" check the box under General and modify plist. 2 steps to make it work.
-// Had to use Menu -> Product -> Clean to get code to work on the closure under nextQuestion() UIAlertAction.
+// Had to use Menu -> Product -> Clean to get code to work on the closure under nextQuestion() UIAlertAction. And after adding Objective C code (ProgressHUD).
 
 import UIKit
 
