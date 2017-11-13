@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 		let allQuestions = QuestionBank()
 		var pickedAnswer : Bool = false
 		var questionNumber : Int = 0 //this is going to increment and pull the next question from array.
-		var score : Int = 0
+		var score = 0 
 	
 	
 		// MARK: - Outlets
@@ -104,7 +104,7 @@ class ViewController: UIViewController {
     func startOver() {
 			
 			questionNumber = 0
-			score = 0 
+			score = 0
 			nextQuestion()
        
     }
