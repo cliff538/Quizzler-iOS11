@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 
 
 		// MARK: - Actions
-		@IBAction func answerPressed(_ sender: AnyObject) { //attatched to two buttons.
+		@IBAction func answerPressed(_ sender: AnyObject) { //attatched to two buttons in UI, "True" and "False".
 			if sender.tag == 1 {
 				pickedAnswer = true
 			} else if sender.tag == 2 {
