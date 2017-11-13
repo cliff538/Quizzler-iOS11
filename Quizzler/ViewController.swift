@@ -7,7 +7,7 @@
 //
 
 // Check out info.plist. To get status bar to "light" check the box under General and modify plist. 2 steps to make it work.
-// Had to use Menu -> Product -> Clean to get code to work on the closure under nextQuestion() UIAlertAction. 
+// Had to use Menu -> Product -> Clean to get code to work on the closure under nextQuestion() UIAlertAction.
 
 import UIKit
 
@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     // MARK: - Properties
 		let allQuestions = QuestionBank()
 		var pickedAnswer : Bool = false
-	  //this is going to increment and pull the next question from array.
-		var questionNumber : Int = 0
+		var questionNumber : Int = 0 //this is going to increment and pull the next question from array.
+		var score : Int = 0
 	
 	
 		// MARK: - Outlets
@@ -37,13 +37,11 @@ class ViewController: UIViewController {
 					//this is one way to do it. but, basically this is the nextQuestion function.
 					/* let firstQuestion = allQuestions.list[0]
 					questionLabel.text = firstQuestion.questionText */
-		
-		
-        
-    }
+		}
 
 
 		// MARK: - Actions
+	
 		@IBAction func answerPressed(_ sender: AnyObject) { //attatched to two buttons in UI, "True" with tag1 and "False" with tag2.
 			if sender.tag == 1 {
 				pickedAnswer = true
@@ -54,14 +52,15 @@ class ViewController: UIViewController {
 			checkAnswer()
 			questionNumber += 1
 			nextQuestion()
-			
-			
-  
-    }
+		}
     
     
 		// MARK: - Functions
-		func updateUI() {
+	
+	func updateUI() {
+		scoreLabel.text = "Score: \(score)"
+		progressLabel.text = "\(questionNumber + 1) / 13"
+		progressBar.frame.size.width = (view.frame.size.width / 13) * CGFloat(questionNumber + 1)
       
     }
     
@@ -71,6 +70,9 @@ class ViewController: UIViewController {
 			if questionNumber <= 12 {
 			//questionNumber is incremented and is used to grab the next question from array.
 			questionLabel.text = allQuestions.list[questionNumber].questionText
+				
+			updateUI()
+				
 			} else {
 				let alert = UIAlertController(title: "Awesome", message: "You've finished all the questions, do you want to try again?", preferredStyle: .alert)
 				
@@ -91,6 +93,7 @@ class ViewController: UIViewController {
 			
 			if correctAnswer == pickedAnswer {
 				print("You got it right")
+				score += 1
 			} else {
 				print("You got it wrong")
 			}
@@ -101,6 +104,7 @@ class ViewController: UIViewController {
     func startOver() {
 			
 			questionNumber = 0
+			score = 0 
 			nextQuestion()
        
     }
@@ -109,7 +113,7 @@ class ViewController: UIViewController {
     
 
     
-}
+} //viewController
 
 
 
